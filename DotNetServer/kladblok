@@ -1,0 +1,18 @@
+"/home/vscode"
+  "/home/vscode/.profile",
+  "/home/vscode/.bash_logout",
+  "/home/vscode/.zshrc",
+  "/home/vscode/.bashrc",
+  "/home/vscode/.gitconfig"
+
+"/workspaces/DotNetServer"
+  "/workspaces/DotNetServer/kladblok",
+  "/workspaces/DotNetServer/ShowFiles.sln",
+  "/workspaces/DotNetServer/.gitignore"
+  
+  "/workspaces/DotNetServer/.devcontainer",
+  "/workspaces/DotNetServer/.vscode",
+  "/workspaces/DotNetServer/WebApi"
+  
+%2Fworkspaces%2FDotNetServer
+%2Fworkspaces%2FDotNetServer%2FShowFiles.sln

@@ -1,0 +1,11 @@
+<p>File list</p>
+
+<div class="help">
+    <button mat-raised-button (click)="retrieveFileList()" color="primary">Update file list</button>
+</div>
+
+<div id="formatted">
+    <span>
+        <div *ngFor="let filePath of filePaths">{{filePath}}</div>
+    </span>
+</div>

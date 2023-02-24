@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  backend:
+    container_name: attentiondeficitserver
+    build:
+      context: ./Server
+      dockerfile: Dockerfile
+    ports:
+      - "44314:80"
+    volumes:
+      - /home/maarten/Containers/AttentionDeficitIndexerDocker/repo:/repo
+  frontend:
+    container_name: attentiondeficitclient
+    build:
+      context: ./IndexClient
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend

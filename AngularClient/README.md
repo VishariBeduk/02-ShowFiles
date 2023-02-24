@@ -1,0 +1,1 @@
+Template for an Angular project in a devcontainer.

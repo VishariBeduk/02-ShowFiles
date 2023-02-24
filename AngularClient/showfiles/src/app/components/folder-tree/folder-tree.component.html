@@ -1,0 +1,21 @@
+<p>Folder tree</p>
+
+<div class="help">
+<button mat-raised-button (click)="retrieveHomeFolder()" color="primary">Update home folder</button>
+</div>
+
+<div id="formatted">
+    <span>
+        {{homeFolder}}
+    </span>
+</div>
+
+<div class="help">
+    <button mat-raised-button (click)="retrieveFolderList()" color="primary">Update folder list</button>
+</div>
+
+<div id="formatted">
+    <span>
+        <div *ngFor="let folderPath of folderPaths">{{folderPath}}</div>
+    </span>
+</div>
