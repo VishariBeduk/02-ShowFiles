@@ -2,18 +2,18 @@ version: '3.7'
 
 services:
   backend:
-    container_name: attentiondeficitserver
+    container_name: showfilesserver
     build:
-      context: ./Server
+      context: ./DotNetServer
       dockerfile: Dockerfile
     ports:
       - "44314:80"
     volumes:
-      - /home/maarten/Containers/AttentionDeficitIndexerDocker/repo:/repo
+      - ~/Containers:/repo
   frontend:
-    container_name: attentiondeficitclient
+    container_name: showfilesclient
     build:
-      context: ./IndexClient
+      context: ./AngularClient
       dockerfile: Dockerfile
     ports:
       - "4200:80"

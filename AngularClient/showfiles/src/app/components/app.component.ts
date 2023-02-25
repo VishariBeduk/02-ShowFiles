@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Show files and content';
 
-  fdsa = '/media/maarten/Music/Metal/Sepultura';
+  selectedFolder: string = '/workspaces/DotNetServer';
+  selectedFile: string = '/workspaces/DotNetServer/ShowFiles.sln';
+
+  selectedFileTrigger(selection: string): void {
+    console.log('selectedFileTrigger --> ' + selection)
+    this.selectedFile = selection;
+  }
 }

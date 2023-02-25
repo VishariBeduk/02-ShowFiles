@@ -6,12 +6,12 @@
   </mat-grid-tile>
   <mat-grid-tile>
     Files
-    <app-file-list>
+    <app-file-list [selectedFolder]="selectedFolder" (selectedFile)="selectedFileTrigger($event)">
     </app-file-list>
   </mat-grid-tile>
   <mat-grid-tile>
     Content
-    <app-file-content>
+    <app-file-content [selectedFile]="selectedFile">
     </app-file-content>
   </mat-grid-tile>
 </mat-grid-list>

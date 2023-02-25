@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
 
 import { FilesService } from '../../services/files.service';
 
@@ -8,13 +13,25 @@ import { FilesService } from '../../services/files.service';
   styleUrls: ['./file-list.component.css']
 })
 export class FileListComponent {
+  @Input() selectedFolder: string = '';
+  @Output() selectedFile: EventEmitter<string>;
   filePaths: string[] = [];
 
-  constructor(private fileService: FilesService) {}
+  displayedColumns = ['name'];
+
+  constructor(private fileService: FilesService) {
+    this.selectedFile = new EventEmitter();
+  }
 
   retrieveFileList(): void {
-    var filePath: string = '/workspaces/DotNetServer';
-    this.fileService.getFiles(filePath)
+    this.fileService.getFiles(this.selectedFolder)
       .subscribe((r: string[]) => { this.filePaths = r; });
   }
+
+  getRecord(row: string) {
+    console.log(row);
+    this.selectedFile.emit(row);
+  }
 }
+
+// https://material.angular.io/components/table/examples

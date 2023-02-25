@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { FilesService } from '../../services/files.service';
 
@@ -8,13 +8,13 @@ import { FilesService } from '../../services/files.service';
   styleUrls: ['./file-content.component.css']
 })
 export class FileContentComponent {
+  @Input() selectedFile: string = '';
   fileContent: string = '<empty>';
 
   constructor(private fileService: FilesService) {}
 
   retrieveFileContent(): void {
-    var filePath: string = '/workspaces/DotNetServer/ShowFiles.sln';
-    this.fileService.getAllText(filePath)
+    this.fileService.getAllText(this.selectedFile)
       .subscribe((content: string) => { this.fileContent = content; });
   }
 }
