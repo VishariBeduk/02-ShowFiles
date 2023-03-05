@@ -11,6 +11,11 @@ export class AppComponent {
   selectedFolder: string = '/workspaces/DotNetServer';
   selectedFile: string = '/workspaces/DotNetServer/ShowFiles.sln';
 
+  selectedFolderTrigger(selection: string): void {
+    console.log('selectedFolderTrigger --> ' + selection)
+    this.selectedFolder = selection;
+  }
+
   selectedFileTrigger(selection: string): void {
     console.log('selectedFileTrigger --> ' + selection)
     this.selectedFile = selection;

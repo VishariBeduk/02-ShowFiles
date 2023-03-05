@@ -1,7 +1,7 @@
 <mat-grid-list cols="3">
   <mat-grid-tile>
     Folder tree
-    <app-folder-tree>
+    <app-folder-tree (selectedFolder)="selectedFolderTrigger($event)">
     </app-folder-tree>
   </mat-grid-tile>
   <mat-grid-tile>

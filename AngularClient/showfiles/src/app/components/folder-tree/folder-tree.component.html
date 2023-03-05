@@ -1,7 +1,7 @@
 <p>Folder tree</p>
 
 <div class="help">
-<button mat-raised-button (click)="retrieveHomeFolder()" color="primary">Update home folder</button>
+    <button mat-raised-button (click)="retrieveHomeFolder()" color="primary">Update home folder</button>
 </div>
 
 <div id="formatted">
@@ -19,3 +19,25 @@
         <div *ngFor="let folderPath of folderPaths">{{folderPath}}</div>
     </span>
 </div>
+
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+        <button mat-icon-button disabled></button>
+        {{node.item}}
+    </mat-tree-node>
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+        <button mat-icon-button [attr.aria-label]="'Toggle ' + node.item" matTreeNodeToggle>
+            <mat-icon class="mat-icon-rtl-mirror">
+                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+        </button>
+        {{node.item}}
+        <button mat-button (click)="logNode(node)">
+            <mat-icon class="mat-icon-rtl-mirror">
+                'arrow_right'
+            </mat-icon>
+          </button>
+        <mat-progress-bar *ngIf="node.isLoading" mode="indeterminate"
+            class="example-tree-progress-bar"></mat-progress-bar>
+    </mat-tree-node>
+</mat-tree>
